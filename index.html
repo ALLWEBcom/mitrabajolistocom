@@ -38,7 +38,7 @@
 <details><summary>¿Qué datos debo enviar?</summary><p>Solo los necesarios. Nunca claves del campus virtual ni credenciales.</p></details></div></section>
 
 <section id="pedir"><div class="w"><h2>Pide tu ayuda en 1 minuto</h2>
-<form id="form" novalidate><input class="hp" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="pedir-grid"><form id="form" novalidate><input class="hp" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
 <div class="cols"><div><label for="nombre">Tu nombre</label><input id="nombre" name="nombre" required></div>
 <div><label for="tel">Tu WhatsApp</label><input id="tel" name="tel" inputmode="tel" required></div>
 <div><label for="tipo">¿Qué necesitas?</label><select id="tipo" name="tipo"></select></div>
@@ -46,7 +46,23 @@
 <label for="necesidad">Cuéntanos en pocas palabras (materia y tema)</label><textarea id="necesidad" name="necesidad" rows="3" maxlength="800" required></textarea>
 <div class="chk"><input type="checkbox" id="privacidad" name="privacidad"><label for="privacidad">Acepto la <a href="legal/privacidad.html">política de privacidad</a>.</label></div>
 <p class="mini">Se abrirá WhatsApp con tu mensaje listo. No envíes claves ni credenciales.</p>
-<button class="btn" type="submit">Pedir por WhatsApp</button></form></div></section>
+<button class="btn" type="submit">Pedir por WhatsApp</button></form>
+<div class="stage" id="stage" aria-live="polite">
+<svg class="char" viewBox="0 0 170 300" role="img" aria-label="Asesor amigable con los brazos cruzados">
+<ellipse cx="85" cy="291" rx="46" ry="6" fill="rgba(0,0,0,.4)"/>
+<rect x="64" y="170" width="17" height="108" rx="7" fill="#1c2250"/><rect x="88" y="170" width="17" height="108" rx="7" fill="#232b63"/>
+<ellipse cx="71" cy="283" rx="16" ry="6.5" fill="#0d0f1c"/><ellipse cx="99" cy="283" rx="16" ry="6.5" fill="#0d0f1c"/>
+<rect x="52" y="98" width="66" height="90" rx="20" fill="#f58220"/><polygon points="74,98 96,98 85,132" fill="#fff"/>
+<rect x="76" y="86" width="18" height="16" rx="6" fill="#dca283"/>
+<rect x="46" y="128" width="78" height="17" rx="8.5" fill="#e06f10" transform="rotate(-6 85 136)"/><rect x="54" y="142" width="62" height="15" rx="7.5" fill="#f58220" stroke="#c75f0c" stroke-width="1.5"/>
+<circle cx="50" cy="132" r="8" fill="#f2bf9f"/><circle cx="120" cy="150" r="8" fill="#f2bf9f"/>
+<circle cx="85" cy="64" r="27" fill="#f2bf9f"/>
+<path d="M57 62Q55 32 86 34Q114 36 112 64Q104 48 86 48Q68 48 57 62Z" fill="#4a2a14"/>
+<rect x="66" y="58" width="17" height="11" rx="4.5" fill="#111"/><rect x="87" y="58" width="17" height="11" rx="4.5" fill="#111"/><rect x="82" y="61" width="6" height="2.5" fill="#111"/>
+<path d="M76 77Q86 86 96 77" stroke="#8a4328" stroke-width="2.5" fill="none" stroke-linecap="round"/></svg>
+<div class="bubble" id="burbuja">¿En qué materia necesitas ayuda?</div>
+<div class="okbox" id="okbox"><strong>¡LISTO!</strong><span>Se abrió WhatsApp con tu mensaje. Pulsa <b>Enviar</b> allí para completar tu solicitud.</span></div></div>
+</div></div></section>
 </main>
 <footer><div class="w">S@candotedeapuros · Servicio independiente, sin vínculo con la UNAD · <a href="legal/terminos.html">Términos</a> · <a href="legal/privacidad.html">Privacidad</a> · <a href="legal/politica-reembolsos.html">Reembolsos</a></div></footer>
 
@@ -123,9 +139,10 @@ $("#form").onsubmit=function(e){e.preventDefault();var f=e.target,d={};["web","n
  if(!/^\+?[0-9\s-]{7,15}$/.test(d.tel.trim()))er.push("WhatsApp no válido.");
  if(d.necesidad.trim().length<5)er.push("Cuéntanos qué necesitas.");
  if(!f.privacidad.checked)er.push("Acepta la política de privacidad.");
- if(er.length)return aviso(er.join(" "),false);
+ if(er.length){var sg=$("#stage");sg.classList.remove("no");void sg.offsetWidth;sg.classList.add("no");return aviso(er.join(" "),false)}
  var l=items();wa("Hola, soy "+limpiar(d.nombre)+" (estudiante de Psicología UNAD).\nWhatsApp: "+limpiar(d.tel)+"\nNecesito: "+limpiar(d.tipo)+"\nFecha límite: "+limpiar(d.fecha||"-")+"\nDetalle: "+limpiar(d.necesidad)+(l.length?"\n\n"+resumen():""));
- aviso("Se abrió WhatsApp. Tu mensaje no se envía hasta que pulses Enviar.")};
+ aviso("Se abrió WhatsApp. Tu mensaje no se envía hasta que pulses Enviar.");var st=$("#stage");st.classList.remove("no");st.classList.add("ok");st.scrollIntoView({behavior:"smooth",block:"center"})};
+$("#form").addEventListener("input",function(){$("#stage").classList.remove("ok")});
 
 /* Chatbot sin API (para IA usa un backend seguro, nunca claves en GitHub) */
 var R=[{k:["servicio","ofrecen"],r:"Ofrecemos tutorías, revisión, normas APA, material de estudio y orientación para Psicología UNAD.",ir:"#catalogo"},
