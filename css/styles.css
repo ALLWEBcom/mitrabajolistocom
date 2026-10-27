@@ -91,3 +91,11 @@ footer{padding:36px 0;border-top:1px solid var(--bd);background:rgba(11,16,32,.8
 .nota{align-self:flex-start;margin-top:8px;padding:4px 12px;border-radius:99px;background:rgba(245,130,32,.18);border:1px solid #f58220;color:#ffc27a;font-size:13px;font-weight:700}
 .mas{margin-top:26px;text-align:center}
 #cb-btn{color:#1a1200}
+#trabajos-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:14px}
+.work{margin:0;padding:0;background:var(--card);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden;backdrop-filter:blur(10px)}
+.work img{width:100%;aspect-ratio:4/3;object-fit:cover;display:block;cursor:zoom-in;margin:0;border-radius:0}
+.work figcaption{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:10px 12px;font-size:13px;color:var(--mut)}
+.work .nota{margin:0;align-self:auto;padding:2px 10px}
+#lb{position:fixed;inset:0;z-index:80;background:rgba(5,7,15,.93);display:flex;align-items:center;justify-content:center;padding:16px;cursor:zoom-out}#lb[hidden]{display:none}
+#lb img{max-width:100%;max-height:100%;border-radius:10px}
+@media(min-width:640px){#trabajos-grid{grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:18px}}
