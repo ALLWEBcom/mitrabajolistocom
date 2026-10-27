@@ -19,7 +19,7 @@
 <section id="catalogo"><div class="w"><h2>Servicios para Psicología UNAD</h2><p class="lead">Elige lo que necesitas y agrégalo a tu solicitud. Un asesor te confirma alcance, plazo y valor. Orientamos, revisamos y explicamos sobre tu propio trabajo.</p>
 <div id="filtros"></div><div class="grid" id="grid"></div></div></section>
 
-<section id="trabajos"><div class="w"><h2>Trabajos realizados</h2><p class="lead">Ejemplos de trabajos realizados y sus resultados, siempre sin datos personales.</p><div class="grid" id="trabajos-grid"></div><div class="mas"><a class="btn" href="https://wa.me/573187248086?text=Hola%2C%20quisiera%20ver%20trabajos%20realizados." target="_blank" rel="noopener">Pedir trabajos realizados por WhatsApp</a></div></div></section>
+<section id="trabajos"><div class="w"><h2>Trabajos realizados</h2><p class="lead">Resultados de trabajos que hemos acompañado. Toca una imagen para verla en grande.</p><div class="grid" id="trabajos-grid"></div></div></section>
 
 <section id="proceso"><div class="w"><h2>Cómo funciona</h2><ol class="pasos">
 <li><strong>Escríbenos</strong><br>Cuéntanos tu materia y qué necesitas.</li><li><strong>Te cotizamos</strong><br>Valor y plazo confirmados por un asesor.</li><li><strong>Trabajamos contigo</strong><br>Con tu material y la guía de tu curso.</li><li><strong>Recibes y ajustas</strong><br>Ajustes dentro de lo acordado.</li></ol></div></section>
@@ -53,6 +53,7 @@
 <aside id="panel" aria-label="Carrito"><div style="display:flex;justify-content:space-between;gap:8px"><h3>Mi solicitud</h3><button class="btn sec" id="cerrarCarrito" type="button">Seguir viendo</button></div>
 <ul id="lineas"></ul><p class="mini">Un asesor te confirmará alcance, plazo y valor. Esto no es un pago.</p>
 <button class="btn" id="waCarrito" type="button">Enviar por WhatsApp</button><button class="btn sec" id="vaciar" type="button" style="margin-top:8px">Vaciar lista</button></aside>
+<div id="lb" hidden><img alt="Trabajo ampliado"></div>
 <div id="aviso" class="aviso" role="status" hidden></div>
 <a id="waFlot" href="https://wa.me/573187248086?text=Hola%2C%20quisiera%20una%20consulta." target="_blank" rel="noopener">WhatsApp</a>
 
@@ -75,7 +76,11 @@ var CAT=[
 {id:"diapositivas",cat:"Material de estudio",nombre:"Diseño de diapositivas",desc:"Diseño limpio sobre contenido que tú aportas.",alcance:"Hasta 10 diapositivas.",tiempo:"2 a 4 días hábiles (estimado)"},
 {id:"grado",cat:"Tutorías",nombre:"Orientación en proyecto de grado",desc:"Orientación en ruta, estructura y revisión.",alcance:"Por sesión.",tiempo:"Según agenda"}
 ];
-var TRABAJOS=[/* Ejemplo: {titulo:"Título del trabajo",materia:"Materia",desc:"Descripción breve.",nota:"4.5",img:"img/trabajo1.jpg"} */];
+/* Para agregar trabajos: sube las imágenes a la carpeta img y escribe una línea por cada una, separadas por coma. Ejemplos:
+   "img/trabajo1.jpg",
+   {img:"img/trabajo2.jpg",materia:"Psicología social",nota:"5.0"},
+   Si la lista está vacía, la sección se oculta sola. */
+var TRABAJOS=[];
 function $(s){return document.querySelector(s)}
 function $$(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
 function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
@@ -91,7 +96,7 @@ function quitar(id){guardar(items().filter(function(x){return x.id!==id}))}
 function resumen(){var l=items();if(!l.length)return "Hola, quisiera una consulta general.";return "Hola, quisiera cotizar estos servicios:\n"+l.map(function(i){return "- "+i.nombre}).join("\n")}
 
 function pintarCatalogo(f){f=f||"Todas";$("#grid").innerHTML=CAT.filter(function(s){return f==="Todas"||s.cat===f}).map(function(s){return '<article class="card"><span class="tag">'+esc(s.cat)+'</span><h3>'+esc(s.nombre)+'</h3><p>'+esc(s.desc)+'</p><p class="mini"><strong>Alcance:</strong> '+esc(s.alcance)+'<br><strong>Tiempo:</strong> '+esc(s.tiempo)+'</p><div class="acc"><button type="button" class="btn sec" data-det="'+s.id+'">Detalles</button><button type="button" class="btn" data-add="'+s.id+'">Cotizar</button></div></article>'}).join("")}
-function pintarTrabajos(){$("#trabajos-grid").innerHTML=TRABAJOS.length?TRABAJOS.map(function(t){return '<article class="card work">'+(t.img?'<img src="'+esc(t.img)+'" alt="'+esc(t.titulo)+'" loading="lazy">':'')+'<span class="tag">'+esc(t.materia)+'</span><h3>'+esc(t.titulo)+'</h3><p>'+esc(t.desc)+'</p>'+(t.nota?'<span class="nota">Nota: '+esc(t.nota)+'</span>':'')+'</article>'}).join(""):'<article class="card"><h3>Ejemplos por WhatsApp</h3><p>Estamos preparando nuestra galería. Mientras tanto, pídenos ejemplos de trabajos realizados y te los compartimos.</p><div class="acc"><button type="button" class="btn" data-ej="1">Pedir ejemplos</button></div></article>'}
+function pintarTrabajos(){if(!TRABAJOS.length){$("#trabajos").hidden=true;return}$("#trabajos-grid").innerHTML=TRABAJOS.map(function(t){if(typeof t==="string")t={img:t};return '<figure class="work"><img src="'+esc(t.img)+'" alt="'+esc(t.materia||"Trabajo realizado")+'" loading="lazy" data-zoom="'+esc(t.img)+'">'+((t.materia||t.nota)?'<figcaption><span>'+esc(t.materia||"")+'</span>'+(t.nota?'<span class="nota">Nota: '+esc(t.nota)+'</span>':'')+'</figcaption>':'')+'</figure>'}).join("")}
 function pintarFiltros(){var c=["Todas"];CAT.forEach(function(s){if(c.indexOf(s.cat)<0)c.push(s.cat)});$("#filtros").innerHTML=c.map(function(x,i){return '<button type="button" class="chip'+(i?"":" on")+'" data-f="'+x+'">'+x+'</button>'}).join("");$("#tipo").innerHTML=CAT.map(function(s){return "<option>"+esc(s.nombre)+"</option>"}).join("")+"<option>Otra materia o ayuda</option>"}
 function pintarCarrito(){var l=items();$("#cuenta").textContent=l.length;$("#lineas").innerHTML=l.length?l.map(function(i){return '<li><strong>'+esc(i.nombre)+'</strong><button type="button" data-q="'+i.id+'" aria-label="Quitar">✕</button></li>'}).join(""):"<li>Aún no has agregado servicios.</li>"}
 function aviso(t,ok){var a=$("#aviso");a.textContent=t;a.className="aviso "+(ok===false?"err":"ok");a.hidden=false;setTimeout(function(){a.hidden=true},4500)}
@@ -99,10 +104,12 @@ function aviso(t,ok){var a=$("#aviso");a.textContent=t;a.className="aviso "+(ok=
 document.addEventListener("click",function(e){var t=e.target.closest("button");if(!t)return;var d=t.dataset;
  if(d.add){aviso(agregar(d.add)?"Agregado a tu solicitud.":"Ya está en tu solicitud.")}
  if(d.det){var s=CAT.filter(function(x){return x.id===d.det})[0];alert(s.nombre+"\n\n"+s.desc+"\nAlcance: "+s.alcance+"\nTiempo: "+s.tiempo+"\nEl valor lo confirma un asesor.")}
- if(d.ej)wa("Hola, quisiera ver ejemplos de trabajos realizados.");
+
  if(d.f){$$(".chip").forEach(function(c){c.classList.toggle("on",c===t)});pintarCatalogo(d.f)}
  if(d.q)quitar(d.q)});
 
+document.addEventListener("click",function(e){var z=e.target.closest("[data-zoom]");if(z){$("#lb img").src=z.dataset.zoom;$("#lb").hidden=false}else if(e.target.closest("#lb")){$("#lb").hidden=true}});
+document.addEventListener("keydown",function(e){if(e.key==="Escape")$("#lb").hidden=true});
 pintarFiltros();pintarCatalogo();pintarTrabajos();pintarCarrito();
 $("#abrirCarrito").onclick=function(){$("#panel").classList.add("abierto")};
 $("#cerrarCarrito").onclick=function(){$("#panel").classList.remove("abierto")};
