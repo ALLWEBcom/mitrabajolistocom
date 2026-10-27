@@ -49,3 +49,25 @@ body::before{content:"";position:fixed;inset:0;z-index:-1;
 .card{background:rgba(14,20,48,.62);backdrop-filter:blur(10px)}
 .pasos li{background:rgba(14,20,48,.7);backdrop-filter:blur(8px)}
 footer{background:rgba(11,16,32,.88)}
+/* ===== Botones 3D con brillo ===== */
+.btn{
+  position:relative;display:inline-block;overflow:hidden;cursor:pointer;
+  padding:12px 24px;border:2px solid transparent;border-radius:16px;
+  font-family:inherit;font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  color:#fff;text-decoration:none;user-select:none;-webkit-tap-highlight-color:transparent;
+  background:linear-gradient(#161c42,#0b1020) padding-box,linear-gradient(135deg,#ff3d9a,#2f6bff) border-box;
+  box-shadow:0 4px 0 #05070f,0 8px 18px rgba(0,0,0,.45),0 0 16px rgba(255,61,154,.28),0 0 26px rgba(47,107,255,.25);
+  transition:transform .15s,box-shadow .25s;filter:none;
+}
+.btn::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);
+  transform:skewX(-20deg);transition:left .5s}
+.btn:hover{transform:translateY(-2px);filter:none;
+  box-shadow:0 6px 0 #05070f,0 12px 24px rgba(0,0,0,.5),0 0 22px rgba(255,61,154,.5),0 0 38px rgba(47,107,255,.45)}
+.btn:hover::after{left:130%}
+.btn:active{transform:translateY(3px);
+  box-shadow:0 1px 0 #05070f,0 3px 8px rgba(0,0,0,.5),0 0 14px rgba(255,61,154,.4)}
+.btn.sec{
+  background:linear-gradient(rgba(14,20,48,.75),rgba(14,20,48,.75)) padding-box,linear-gradient(135deg,rgba(255,255,255,.45),rgba(255,255,255,.12)) border-box;
+  box-shadow:0 4px 0 #05070f,0 8px 16px rgba(0,0,0,.4)}
+.btn.sec:hover{box-shadow:0 6px 0 #05070f,0 12px 22px rgba(0,0,0,.45),0 0 20px rgba(143,176,255,.35)}
