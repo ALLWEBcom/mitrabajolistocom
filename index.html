@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Apoyo académico universitario | Asesoría, revisión y tutorías</title>
+<meta name="description" content="Servicios de apoyo académico para universitarios: revisión, asesoría, normas APA, presentaciones y tutorías. Solicita tu cotización.">
+<meta property="og:title" content="Apoyo académico universitario"><meta property="og:description" content="Asesoría, revisión y tutorías para avanzar con confianza."><meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%232f6bff'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='white'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/styles.css"><link rel="stylesheet" href="assets/css/responsive.css"></head>
+<body>
+<header class="top"><div class="w bar"><a class="logo nombre" href="#inicio">Aula Clara</a>
+<nav id="nav" aria-label="Principal"><a href="#inicio">Inicio</a><a href="#catalogo">Servicios</a><a href="#proceso">Cómo funciona</a><a href="#catalogo">Catálogo</a><a href="#faq">Preguntas frecuentes</a><a href="#contacto">Contacto</a></nav>
+<a class="btn sol" href="#contacto">Solicitar servicio</a>
+<button class="btn sec" id="abrirCarrito" aria-label="Abrir carrito">🛒 <span id="cuenta">0</span></button>
+<button id="menuBtn" aria-label="Menú">☰</button></div></header>
+<main>
+<section class="hero" id="inicio"><div class="w"><h1>Tu próximo logro académico comienza aquí</h1>
+<p>Servicios de apoyo académico personalizados para organizar tus ideas, fortalecer tus conocimientos y avanzar con confianza en la universidad.</p>
+<div class="acc"><a class="btn" href="#catalogo">Explorar servicios</a><button class="btn sec" onclick="WA.abrir('Hola, quisiera una consulta general.')">Consultar por WhatsApp</button></div></div></section>
+
+<section id="catalogo"><div class="w"><h2>Catálogo de servicios</h2><p>Los precios son base y estimados; el valor final depende de extensión, complejidad y plazo. Nuestro enfoque es el aprendizaje: orientamos, revisamos y explicamos sobre tu propio trabajo.</p>
+<div id="filtros"></div><div class="grid" id="grid"></div></div></section>
+
+<section class="alt" id="proceso"><div class="w"><h2>Cómo funciona</h2><ol class="pasos">
+<li><strong>Cuéntanos tu necesidad</strong><br>Por el formulario o WhatsApp.</li><li><strong>Recibe cotización</strong><br>Alcance, plazo y valor confirmados por un asesor.</li><li><strong>Trabajamos contigo</strong><br>Con el material que tú aportas.</li><li><strong>Entrega y ajustes</strong><br>Ajustes dentro del alcance acordado.</li></ol></div></section>
+
+<section><div class="w"><h2>Ventajas</h2><div class="grid">
+<div class="card"><h3>Enfoque en aprender</h3><p>Orientación y retroalimentación para que domines tu trabajo.</p></div>
+<div class="card"><h3>Transparencia</h3><p>Sin promesas de resultados ni tarifas ocultas.</p></div>
+<div class="card"><h3>Atención directa</h3><p>Hablas con un asesor por WhatsApp.</p></div></div>
+<p class="mini">Aún no hay opiniones verificadas para mostrar.</p></div></section>
+
+<section class="alt" id="faq"><div class="w"><h2>Preguntas frecuentes</h2>
+<details><summary>¿Hacen trabajos para entregar como propios?</summary><p>No. Ofrecemos apoyo, orientación y revisión. No suplantamos estudiantes ni ofrecemos trabajos para presentarse como producción propia.</p></details>
+<details><summary>¿Cómo se pagan los servicios?</summary><p>Los medios de pago se confirman con el asesor. Esta web no procesa pagos.</p></details>
+<details><summary>¿Cuánto tarda una entrega?</summary><p>Los tiempos del catálogo son estimados y se confirman antes de iniciar.</p></details>
+<details><summary>¿Qué datos debo enviar?</summary><p>Solo los necesarios. Nunca contraseñas ni credenciales institucionales.</p></details></div></section>
+
+<section id="contacto"><div class="w"><h2>Solicita tu servicio o cotización</h2>
+<form id="form" novalidate><input class="hp" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+<div class="cols"><div><label for="nombre">Nombre</label><input id="nombre" name="nombre" required></div><div><label for="correo">Correo electrónico</label><input id="correo" name="correo" type="email" required></div>
+<div><label for="tel">Número de contacto</label><input id="tel" name="tel" required></div><div><label for="tipo">Tipo de servicio</label><select id="tipo" name="tipo"></select></div>
+<div><label for="uni">Universidad (opcional)</label><input id="uni" name="uni"></div><div><label for="prog">Programa (opcional)</label><input id="prog" name="prog"></div>
+<div><label for="ext">Extensión aproximada</label><input id="ext" name="ext"></div><div><label for="fecha">Fecha límite</label><input id="fecha" name="fecha" type="date"></div>
+<div><label for="norma">Norma de presentación</label><input id="norma" name="norma" placeholder="APA 7, ICONTEC…"></div><div><label for="via">Enviar por</label><select id="via" name="via"><option value="wa">WhatsApp</option><option value="correo">Correo electrónico</option></select></div></div>
+<label for="necesidad">Tema o necesidad</label><textarea id="necesidad" name="necesidad" rows="4" maxlength="1500" required></textarea>
+<div class="chk"><input type="checkbox" id="privacidad" name="privacidad"><label for="privacidad">Acepto la <a href="legal/privacidad.html">política de privacidad</a> y el tratamiento de mis datos para atender esta solicitud.</label></div>
+<p class="mini">Esta web abre WhatsApp o tu correo con el resumen; la solicitud no se almacena en un servidor. No envíes contraseñas.</p>
+<button class="btn">Preparar solicitud</button></form></div></section>
+</main>
+<footer><div class="w"><span class="nombre">Aula Clara</span> · <a href="legal/terminos.html">Términos</a> · <a href="legal/privacidad.html">Privacidad y datos personales</a> · <a href="legal/politica-reembolsos.html">Reembolsos</a><br>Completa aquí tu razón social, NIT y dirección reales antes de publicar.</div></footer>
+
+<aside id="panel" aria-label="Carrito"><div style="display:flex;justify-content:space-between"><h3>Tu carrito</h3><button class="btn sec" id="cerrarCarrito">Seguir comprando</button></div>
+<ul id="lineas"></ul><p><strong>Total estimado: <span id="total">$0</span></strong><br><span class="mini">Servicios sin precio se cotizan aparte. No es un pago.</span></p>
+<button class="btn" id="waCarrito">Enviar resumen por WhatsApp</button><button class="btn sec" id="vaciar" style="margin-top:8px">Vaciar carrito</button></aside>
+<div id="aviso" class="aviso" role="status" hidden></div>
+<a id="waFlot" href="#" target="_blank" rel="noopener">WhatsApp</a>
+<script src="assets/js/config.js"></script><script src="assets/js/catalogo.js"></script><script src="assets/js/validaciones.js"></script><script src="assets/js/carrito.js"></script><script src="assets/js/whatsapp.js"></script><script src="assets/js/chatbot.js"></script><script src="assets/js/app.js"></script>
+</body></html>
