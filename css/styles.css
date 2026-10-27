@@ -71,3 +71,14 @@ footer{background:rgba(11,16,32,.88)}
   background:linear-gradient(rgba(14,20,48,.75),rgba(14,20,48,.75)) padding-box,linear-gradient(135deg,rgba(255,255,255,.45),rgba(255,255,255,.12)) border-box;
   box-shadow:0 4px 0 #05070f,0 8px 16px rgba(0,0,0,.4)}
 .btn.sec:hover{box-shadow:0 6px 0 #05070f,0 12px 22px rgba(0,0,0,.45),0 0 20px rgba(143,176,255,.35)}
+/* ===== Fondo más claro y visible ===== */
+body::before{background:linear-gradient(180deg,rgba(11,16,32,.38),rgba(11,16,32,.55)),url(../biblioteca.jpg) center/cover no-repeat}
+.hero{background:linear-gradient(90deg,rgba(11,16,32,.62) 0%,rgba(11,16,32,.25) 55%,rgba(11,16,32,0) 100%)}
+h1,h2,.hero p,section>.w>p{text-shadow:0 2px 14px rgba(0,0,0,.65)}
+section>.w>p,.hero p{color:#eef1fb}
+.alt{background:rgba(14,20,48,.7)}
+.card{background:rgba(14,20,48,.68)}
+.pasos li{background:rgba(14,20,48,.72)}
+.chip{background:rgba(14,20,48,.6)}
+#contacto .w{background:rgba(14,20,48,.74);backdrop-filter:blur(10px);border-radius:18px;padding:32px 24px}
+footer{background:rgba(11,16,32,.8)}
