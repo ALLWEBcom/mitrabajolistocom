@@ -115,3 +115,27 @@ footer{padding:36px 0;border-top:1px solid var(--bd);background:rgba(11,16,32,.8
 @keyframes sacude{0%,100%{transform:translateX(0)}20%{transform:translateX(-7px)}40%{transform:translateX(7px)}60%{transform:translateX(-5px)}80%{transform:translateX(5px)}}
 @media(min-width:900px){.pedir-grid{grid-template-columns:1.25fr .75fr}.stage{min-height:340px}.char{height:320px}.bubble{left:150px}.okbox{left:128px;width:calc(100% - 140px)}}
 @media(prefers-reduced-motion:reduce){.char,.bubble,.stage.no .char{animation:none!important}}
+
+/* Personaje bailando */
+.cuerpo{transform-origin:85px 280px}
+.armL{transform-origin:58px 108px}.armR{transform-origin:112px 108px}
+.falda{transform-origin:85px 100px}.pierL,.pierR{transform-origin:85px 205px}
+.armL{animation:brL 3.2s ease-in-out infinite alternate}.armR{animation:brR 3.2s ease-in-out infinite alternate}
+.stage.ok .char{animation:baile .62s ease-in-out infinite;transform-origin:50% 100%}
+.stage.ok .cuerpo{animation:sway .62s ease-in-out infinite alternate}
+.stage.ok .armL{animation:alzaL .62s ease-in-out infinite alternate}
+.stage.ok .armR{animation:alzaR .62s ease-in-out infinite alternate-reverse}
+.stage.ok .falda{animation:faldaM .62s ease-in-out infinite alternate}
+.stage.ok .pierL{animation:paso .62s ease-in-out infinite alternate}
+.stage.ok .pierR{animation:paso .62s ease-in-out infinite alternate-reverse}
+@keyframes brL{from{transform:rotate(4deg)}to{transform:rotate(14deg)}}
+@keyframes brR{from{transform:rotate(-4deg)}to{transform:rotate(-14deg)}}
+@keyframes baile{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes sway{from{transform:rotate(-4deg)}to{transform:rotate(4deg)}}
+@keyframes alzaL{from{transform:rotate(25deg)}to{transform:rotate(155deg)}}
+@keyframes alzaR{from{transform:rotate(-25deg)}to{transform:rotate(-155deg)}}
+@keyframes faldaM{from{transform:skewX(-4deg)}to{transform:skewX(4deg)}}
+@keyframes paso{from{transform:translateY(0)}to{transform:translateY(-6px)}}
+.doc{background:rgba(14,20,48,.86);backdrop-filter:blur(10px);border:1px solid var(--bd);border-radius:16px;margin:24px auto;padding:28px 24px}
+.doc h1{font-size:clamp(26px,5vw,34px)}.doc h2{font-size:21px;margin-top:1.6em}.doc li{margin:.4em 0;color:var(--mut)}.doc p{color:#dfe5fa}.doc .fecha{color:var(--mut);font-size:14px}
+@media(prefers-reduced-motion:reduce){.armL,.armR,.cuerpo,.falda,.pierL,.pierR,.stage.ok .char{animation:none!important}}
