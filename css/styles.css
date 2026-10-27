@@ -42,7 +42,7 @@ footer{padding:40px 0;border-top:1px solid var(--bd);color:var(--mut);font-size:
 /* ===== Fondo con imagen en toda la página ===== */
 body{background:#0b1020}
 body::before{content:"";position:fixed;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(11,16,32,.72),rgba(11,16,32,.9)),url(../img/biblioteca.jpg) center/cover no-repeat}
+  background:linear-gradient(180deg,rgba(11,16,32,.72),rgba(11,16,32,.9)),url(biblioteca.jpg) center/cover no-repeat}
 .hero{background:linear-gradient(90deg,rgba(11,16,32,.7) 0%,rgba(11,16,32,.2) 70%,rgba(11,16,32,.05) 100%)}
 .hero p{color:#dfe5fa}
 .alt{background:rgba(14,20,48,.82);backdrop-filter:blur(8px)}
