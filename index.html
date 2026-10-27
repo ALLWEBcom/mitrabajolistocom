@@ -14,21 +14,19 @@
 <main>
 <section class="hero" id="inicio"><div class="w"><h1>Apoyo para tu carrera de Psicología en la UNAD</h1>
 <p>Tutorías, revisión y orientación para tus materias de Psicología: organiza tus ideas, entiende los temas y entrega con confianza.</p>
-<div class="acc"><a class="btn" href="#catalogo">Ver servicios</a><a class="btn sec" href="https://wa.me/573187248086?text=Hola%2C%20soy%20estudiante%20de%20Psicolog%C3%ADa%20UNAD%20y%20quisiera%20una%20consulta." target="_blank" rel="noopener">Escribir por WhatsApp</a></div><ul class="trust"><li>✔ Ajustes garantizados</li><li>✔ Atención por WhatsApp</li><li>✔ Enfoque en aprender</li></ul></div></section>
+<div class="acc"><a class="btn" href="#catalogo">Ver servicios</a><a class="btn sec" href="https://wa.me/573187248086?text=Hola%2C%20soy%20estudiante%20de%20Psicolog%C3%ADa%20UNAD%20y%20quisiera%20una%20consulta." target="_blank" rel="noopener">Escribir por WhatsApp</a></div><ul class="trust"><li>✔ Atención por WhatsApp</li><li>✔ Enfoque en aprender</li><li>✔ Materias de Psicología</li></ul></div></section>
 
 <section id="catalogo"><div class="w"><h2>Servicios para Psicología UNAD</h2><p class="lead">Elige lo que necesitas y agrégalo a tu solicitud. Un asesor te confirma alcance, plazo y valor. Orientamos, revisamos y explicamos sobre tu propio trabajo.</p>
 <div id="filtros"></div><div class="grid" id="grid"></div></div></section>
 
-<section id="trabajos"><div class="w"><h2>Trabajos realizados</h2><p class="lead">Ejemplos del apoyo que brindamos, siempre sin datos personales.</p><div class="grid" id="trabajos-grid"></div></div></section>
-
-<section class="alt"><div class="w"><div class="garantia"><div class="ico">🛡️</div><div><h3>Garantía de ajustes</h3><p>Si lo que entregamos no cumple lo que acordamos, lo corregimos sin costo adicional dentro del alcance pactado. No prometemos notas ni resultados académicos: tú eres quien presenta tu trabajo.</p></div></div></div></section>
+<section id="trabajos"><div class="w"><h2>Trabajos realizados</h2><p class="lead">Ejemplos de trabajos realizados y sus resultados, siempre sin datos personales.</p><div class="grid" id="trabajos-grid"></div><div class="mas"><a class="btn" href="https://wa.me/573187248086?text=Hola%2C%20quisiera%20ver%20trabajos%20realizados." target="_blank" rel="noopener">Pedir trabajos realizados por WhatsApp</a></div></div></section>
 
 <section id="proceso"><div class="w"><h2>Cómo funciona</h2><ol class="pasos">
 <li><strong>Escríbenos</strong><br>Cuéntanos tu materia y qué necesitas.</li><li><strong>Te cotizamos</strong><br>Valor y plazo confirmados por un asesor.</li><li><strong>Trabajamos contigo</strong><br>Con tu material y la guía de tu curso.</li><li><strong>Recibes y ajustas</strong><br>Ajustes dentro de lo acordado.</li></ol></div></section>
 
 <section><div class="w"><h2>Por qué elegirnos</h2><div class="grid">
 <div class="card"><h3>Enfoque en aprender</h3><p>Orientación para que domines tus materias.</p></div>
-<div class="card"><h3>Transparencia</h3><p>Sin promesas de notas ni tarifas ocultas.</p></div>
+<div class="card"><h3>Claridad</h3><p>Te explicamos alcance y plazo antes de empezar.</p></div>
 <div class="card"><h3>Atención directa</h3><p>Hablas con un asesor por WhatsApp.</p></div></div>
 <p class="mini">Aún no hay opiniones verificadas para mostrar.</p></div></section>
 
@@ -77,7 +75,7 @@ var CAT=[
 {id:"diapositivas",cat:"Material de estudio",nombre:"Diseño de diapositivas",desc:"Diseño limpio sobre contenido que tú aportas.",alcance:"Hasta 10 diapositivas.",tiempo:"2 a 4 días hábiles (estimado)"},
 {id:"grado",cat:"Tutorías",nombre:"Orientación en proyecto de grado",desc:"Orientación en ruta, estructura y revisión.",alcance:"Por sesión.",tiempo:"Según agenda"}
 ];
-var TRABAJOS=[/* Ejemplo: {titulo:"Mapa conceptual de Psicología social",materia:"Psicología social",desc:"Organización de conceptos clave.",img:"img/ejemplo1.jpg"} */];
+var TRABAJOS=[/* Ejemplo: {titulo:"Título del trabajo",materia:"Materia",desc:"Descripción breve.",nota:"4.5",img:"img/trabajo1.jpg"} */];
 function $(s){return document.querySelector(s)}
 function $$(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
 function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
@@ -93,7 +91,7 @@ function quitar(id){guardar(items().filter(function(x){return x.id!==id}))}
 function resumen(){var l=items();if(!l.length)return "Hola, quisiera una consulta general.";return "Hola, quisiera cotizar estos servicios:\n"+l.map(function(i){return "- "+i.nombre}).join("\n")}
 
 function pintarCatalogo(f){f=f||"Todas";$("#grid").innerHTML=CAT.filter(function(s){return f==="Todas"||s.cat===f}).map(function(s){return '<article class="card"><span class="tag">'+esc(s.cat)+'</span><h3>'+esc(s.nombre)+'</h3><p>'+esc(s.desc)+'</p><p class="mini"><strong>Alcance:</strong> '+esc(s.alcance)+'<br><strong>Tiempo:</strong> '+esc(s.tiempo)+'</p><div class="acc"><button type="button" class="btn sec" data-det="'+s.id+'">Detalles</button><button type="button" class="btn" data-add="'+s.id+'">Cotizar</button></div></article>'}).join("")}
-function pintarTrabajos(){$("#trabajos-grid").innerHTML=TRABAJOS.length?TRABAJOS.map(function(t){return '<article class="card work">'+(t.img?'<img src="'+esc(t.img)+'" alt="'+esc(t.titulo)+'" loading="lazy">':'')+'<span class="tag">'+esc(t.materia)+'</span><h3>'+esc(t.titulo)+'</h3><p>'+esc(t.desc)+'</p></article>'}).join(""):'<article class="card"><h3>Ejemplos por WhatsApp</h3><p>Estamos preparando nuestra galería. Mientras tanto, pídenos ejemplos de trabajos realizados y te los compartimos.</p><div class="acc"><button type="button" class="btn" data-ej="1">Pedir ejemplos</button></div></article>'}
+function pintarTrabajos(){$("#trabajos-grid").innerHTML=TRABAJOS.length?TRABAJOS.map(function(t){return '<article class="card work">'+(t.img?'<img src="'+esc(t.img)+'" alt="'+esc(t.titulo)+'" loading="lazy">':'')+'<span class="tag">'+esc(t.materia)+'</span><h3>'+esc(t.titulo)+'</h3><p>'+esc(t.desc)+'</p>'+(t.nota?'<span class="nota">Nota: '+esc(t.nota)+'</span>':'')+'</article>'}).join(""):'<article class="card"><h3>Ejemplos por WhatsApp</h3><p>Estamos preparando nuestra galería. Mientras tanto, pídenos ejemplos de trabajos realizados y te los compartimos.</p><div class="acc"><button type="button" class="btn" data-ej="1">Pedir ejemplos</button></div></article>'}
 function pintarFiltros(){var c=["Todas"];CAT.forEach(function(s){if(c.indexOf(s.cat)<0)c.push(s.cat)});$("#filtros").innerHTML=c.map(function(x,i){return '<button type="button" class="chip'+(i?"":" on")+'" data-f="'+x+'">'+x+'</button>'}).join("");$("#tipo").innerHTML=CAT.map(function(s){return "<option>"+esc(s.nombre)+"</option>"}).join("")+"<option>Otra materia o ayuda</option>"}
 function pintarCarrito(){var l=items();$("#cuenta").textContent=l.length;$("#lineas").innerHTML=l.length?l.map(function(i){return '<li><strong>'+esc(i.nombre)+'</strong><button type="button" data-q="'+i.id+'" aria-label="Quitar">✕</button></li>'}).join(""):"<li>Aún no has agregado servicios.</li>"}
 function aviso(t,ok){var a=$("#aviso");a.textContent=t;a.className="aviso "+(ok===false?"err":"ok");a.hidden=false;setTimeout(function(){a.hidden=true},4500)}
