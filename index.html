@@ -9,17 +9,21 @@
 <header class="top"><div class="w bar"><a class="logo" href="#inicio">S@candotedeapuros</a>
 <nav id="nav" aria-label="Principal"><a href="#inicio">Inicio</a><a href="#catalogo">Servicios</a><a href="#proceso">Cómo funciona</a><a href="#faq">Preguntas</a><a href="#pedir">Contacto</a></nav>
 <a class="btn sol" href="#pedir">Pedir ayuda</a>
-<button class="btn sec" id="abrirCarrito" type="button" aria-label="Abrir carrito">🛒 <span id="cuenta">0</span></button>
+<button class="btn sec" id="abrirCarrito" type="button" aria-label="Abrir mi solicitud">🛒 <span id="cuenta">0</span></button>
 <button id="menuBtn" type="button" aria-label="Menú">☰</button></div></header>
 <main>
 <section class="hero" id="inicio"><div class="w"><h1>Apoyo para tu carrera de Psicología en la UNAD</h1>
 <p>Tutorías, revisión y orientación para tus materias de Psicología: organiza tus ideas, entiende los temas y entrega con confianza.</p>
-<div class="acc"><a class="btn" href="#catalogo">Ver servicios</a><a class="btn sec" href="https://wa.me/573187248086?text=Hola%2C%20soy%20estudiante%20de%20Psicolog%C3%ADa%20UNAD%20y%20quisiera%20una%20consulta." target="_blank" rel="noopener">Escribir por WhatsApp</a></div></div></section>
+<div class="acc"><a class="btn" href="#catalogo">Ver servicios</a><a class="btn sec" href="https://wa.me/573187248086?text=Hola%2C%20soy%20estudiante%20de%20Psicolog%C3%ADa%20UNAD%20y%20quisiera%20una%20consulta." target="_blank" rel="noopener">Escribir por WhatsApp</a></div><ul class="trust"><li>✔ Ajustes garantizados</li><li>✔ Atención por WhatsApp</li><li>✔ Enfoque en aprender</li></ul></div></section>
 
-<section id="catalogo"><div class="w"><h2>Servicios para Psicología UNAD</h2><p>Precios base y estimados: el valor final se confirma según extensión, materia y plazo. Orientamos, revisamos y explicamos sobre tu propio trabajo.</p>
+<section id="catalogo"><div class="w"><h2>Servicios para Psicología UNAD</h2><p class="lead">Elige lo que necesitas y agrégalo a tu solicitud. Un asesor te confirma alcance, plazo y valor. Orientamos, revisamos y explicamos sobre tu propio trabajo.</p>
 <div id="filtros"></div><div class="grid" id="grid"></div></div></section>
 
-<section class="alt" id="proceso"><div class="w"><h2>Cómo funciona</h2><ol class="pasos">
+<section id="trabajos"><div class="w"><h2>Trabajos realizados</h2><p class="lead">Ejemplos del apoyo que brindamos, siempre sin datos personales.</p><div class="grid" id="trabajos-grid"></div></div></section>
+
+<section class="alt"><div class="w"><div class="garantia"><div class="ico">🛡️</div><div><h3>Garantía de ajustes</h3><p>Si lo que entregamos no cumple lo que acordamos, lo corregimos sin costo adicional dentro del alcance pactado. No prometemos notas ni resultados académicos: tú eres quien presenta tu trabajo.</p></div></div></div></section>
+
+<section id="proceso"><div class="w"><h2>Cómo funciona</h2><ol class="pasos">
 <li><strong>Escríbenos</strong><br>Cuéntanos tu materia y qué necesitas.</li><li><strong>Te cotizamos</strong><br>Valor y plazo confirmados por un asesor.</li><li><strong>Trabajamos contigo</strong><br>Con tu material y la guía de tu curso.</li><li><strong>Recibes y ajustas</strong><br>Ajustes dentro de lo acordado.</li></ol></div></section>
 
 <section><div class="w"><h2>Por qué elegirnos</h2><div class="grid">
@@ -46,11 +50,11 @@
 <p class="mini">Se abrirá WhatsApp con tu mensaje listo. No envíes claves ni credenciales.</p>
 <button class="btn" type="submit">Pedir por WhatsApp</button></form></div></section>
 </main>
-<footer><div class="w">S@candotedeapuro · Servicio independiente, sin vínculo con la UNAD · <a href="legal/terminos.html">Términos</a> · <a href="legal/privacidad.html">Privacidad</a> · <a href="legal/politica-reembolsos.html">Reembolsos</a></div></footer>
+<footer><div class="w">S@candotedeapuros · Servicio independiente, sin vínculo con la UNAD · <a href="legal/terminos.html">Términos</a> · <a href="legal/privacidad.html">Privacidad</a> · <a href="legal/politica-reembolsos.html">Reembolsos</a></div></footer>
 
-<aside id="panel" aria-label="Carrito"><div style="display:flex;justify-content:space-between;gap:8px"><h3>Tu carrito</h3><button class="btn sec" id="cerrarCarrito" type="button">Seguir viendo</button></div>
-<ul id="lineas"></ul><p><strong>Total estimado: <span id="total">$0</span></strong><br><span class="mini">Los servicios sin precio se cotizan aparte. No es un pago.</span></p>
-<button class="btn" id="waCarrito" type="button">Enviar por WhatsApp</button><button class="btn sec" id="vaciar" type="button" style="margin-top:8px">Vaciar carrito</button></aside>
+<aside id="panel" aria-label="Carrito"><div style="display:flex;justify-content:space-between;gap:8px"><h3>Mi solicitud</h3><button class="btn sec" id="cerrarCarrito" type="button">Seguir viendo</button></div>
+<ul id="lineas"></ul><p class="mini">Un asesor te confirmará alcance, plazo y valor. Esto no es un pago.</p>
+<button class="btn" id="waCarrito" type="button">Enviar por WhatsApp</button><button class="btn sec" id="vaciar" type="button" style="margin-top:8px">Vaciar lista</button></aside>
 <div id="aviso" class="aviso" role="status" hidden></div>
 <a id="waFlot" href="https://wa.me/573187248086?text=Hola%2C%20quisiera%20una%20consulta." target="_blank" rel="noopener">WhatsApp</a>
 
@@ -59,20 +63,21 @@
 "use strict";
 var NUM="573187248086";
 var CAT=[
-{id:"ensayos",cat:"Escritura",nombre:"Orientación para ensayos de Psicología",desc:"Te guiamos en tesis, estructura y argumentos para que escribas tu propio ensayo.",alcance:"Sesión de orientación y comentarios a tu borrador.",tiempo:"Según agenda",precio:null},
-{id:"informes",cat:"Escritura",nombre:"Apoyo en informes y trabajos de curso",desc:"Estructura, coherencia y claridad en tus informes.",alcance:"Comentarios por secciones.",tiempo:"Según extensión",precio:null},
-{id:"correccion",cat:"Revisión",nombre:"Corrección ortográfica y gramatical",desc:"Revisión de ortografía, puntuación y gramática.",alcance:"Hasta 10 páginas.",tiempo:"2 a 3 días hábiles (estimado)",precio:15000},
-{id:"estilo",cat:"Revisión",nombre:"Revisión de redacción y estilo académico",desc:"Mejoramos claridad, cohesión y tono académico.",alcance:"Hasta 10 páginas.",tiempo:"3 a 4 días hábiles (estimado)",precio:25000},
-{id:"apa",cat:"Normas APA",nombre:"Revisión de normas APA 7",desc:"Citas, referencias y formato APA, muy usado en Psicología.",alcance:"Hasta 10 páginas.",tiempo:"2 días hábiles (estimado)",precio:18000},
-{id:"referencias",cat:"Normas APA",nombre:"Organización de referencias",desc:"Ordenamos y revisamos tu bibliografía.",alcance:"Hasta 30 referencias.",tiempo:"1 a 2 días hábiles (estimado)",precio:15000},
-{id:"rubrica",cat:"Revisión",nombre:"Revisión frente a la rúbrica de tu actividad",desc:"Verificamos que tu trabajo cumpla lo que pide la guía y la rúbrica.",alcance:"Una actividad.",tiempo:"1 a 2 días hábiles (estimado)",precio:20000},
-{id:"tutoria",cat:"Tutorías",nombre:"Tutoría de materias de Psicología",desc:"Explicación de temas y resolución de dudas, según tu curso.",alcance:"Por hora.",tiempo:"Según agenda",precio:null},
-{id:"estadistica",cat:"Tutorías",nombre:"Tutoría de estadística y metodología",desc:"Apoyo para entender estadística e investigación aplicadas a Psicología.",alcance:"Por hora.",tiempo:"Según agenda",precio:null},
-{id:"mapas",cat:"Material de estudio",nombre:"Mapas conceptuales",desc:"Organiza visualmente los conceptos de tu tema.",alcance:"Un mapa.",tiempo:"1 a 3 días hábiles (estimado)",precio:12000},
-{id:"fichas",cat:"Material de estudio",nombre:"Resúmenes y fichas de estudio",desc:"Material de apoyo para repasar.",alcance:"Según el material.",tiempo:"Según extensión",precio:null},
-{id:"diapositivas",cat:"Material de estudio",nombre:"Diseño de diapositivas",desc:"Diseño limpio sobre contenido que tú aportas.",alcance:"Hasta 10 diapositivas.",tiempo:"2 a 4 días hábiles (estimado)",precio:30000},
-{id:"grado",cat:"Tutorías",nombre:"Orientación en proyecto de grado",desc:"Orientación en ruta, estructura y revisión.",alcance:"Por sesión.",tiempo:"Según agenda",precio:null}
+{id:"ensayos",cat:"Escritura",nombre:"Orientación para ensayos de Psicología",desc:"Te guiamos en tesis, estructura y argumentos para que escribas tu propio ensayo.",alcance:"Sesión de orientación y comentarios a tu borrador.",tiempo:"Según agenda"},
+{id:"informes",cat:"Escritura",nombre:"Apoyo en informes y trabajos de curso",desc:"Estructura, coherencia y claridad en tus informes.",alcance:"Comentarios por secciones.",tiempo:"Según extensión"},
+{id:"correccion",cat:"Revisión",nombre:"Corrección ortográfica y gramatical",desc:"Revisión de ortografía, puntuación y gramática.",alcance:"Hasta 10 páginas.",tiempo:"2 a 3 días hábiles (estimado)"},
+{id:"estilo",cat:"Revisión",nombre:"Revisión de redacción y estilo académico",desc:"Mejoramos claridad, cohesión y tono académico.",alcance:"Hasta 10 páginas.",tiempo:"3 a 4 días hábiles (estimado)"},
+{id:"apa",cat:"Normas APA",nombre:"Revisión de normas APA 7",desc:"Citas, referencias y formato APA, muy usado en Psicología.",alcance:"Hasta 10 páginas.",tiempo:"2 días hábiles (estimado)"},
+{id:"referencias",cat:"Normas APA",nombre:"Organización de referencias",desc:"Ordenamos y revisamos tu bibliografía.",alcance:"Hasta 30 referencias.",tiempo:"1 a 2 días hábiles (estimado)"},
+{id:"rubrica",cat:"Revisión",nombre:"Revisión frente a la rúbrica de tu actividad",desc:"Verificamos que tu trabajo cumpla lo que pide la guía y la rúbrica.",alcance:"Una actividad.",tiempo:"1 a 2 días hábiles (estimado)"},
+{id:"tutoria",cat:"Tutorías",nombre:"Tutoría de materias de Psicología",desc:"Explicación de temas y resolución de dudas, según tu curso.",alcance:"Por hora.",tiempo:"Según agenda"},
+{id:"estadistica",cat:"Tutorías",nombre:"Tutoría de estadística y metodología",desc:"Apoyo para entender estadística e investigación aplicadas a Psicología.",alcance:"Por hora.",tiempo:"Según agenda"},
+{id:"mapas",cat:"Material de estudio",nombre:"Mapas conceptuales",desc:"Organiza visualmente los conceptos de tu tema.",alcance:"Un mapa.",tiempo:"1 a 3 días hábiles (estimado)"},
+{id:"fichas",cat:"Material de estudio",nombre:"Resúmenes y fichas de estudio",desc:"Material de apoyo para repasar.",alcance:"Según el material.",tiempo:"Según extensión"},
+{id:"diapositivas",cat:"Material de estudio",nombre:"Diseño de diapositivas",desc:"Diseño limpio sobre contenido que tú aportas.",alcance:"Hasta 10 diapositivas.",tiempo:"2 a 4 días hábiles (estimado)"},
+{id:"grado",cat:"Tutorías",nombre:"Orientación en proyecto de grado",desc:"Orientación en ruta, estructura y revisión.",alcance:"Por sesión.",tiempo:"Según agenda"}
 ];
+var TRABAJOS=[/* Ejemplo: {titulo:"Mapa conceptual de Psicología social",materia:"Psicología social",desc:"Organización de conceptos clave.",img:"img/ejemplo1.jpg"} */];
 function $(s){return document.querySelector(s)}
 function $$(s){return Array.prototype.slice.call(document.querySelectorAll(s))}
 function esc(t){var d=document.createElement("div");d.textContent=t;return d.innerHTML}
@@ -80,28 +85,27 @@ function fmt(n){return new Intl.NumberFormat("es-CO",{style:"currency",currency:
 function wa(t){window.open("https://wa.me/"+NUM+"?text="+encodeURIComponent(t),"_blank","noopener")}
 function limpiar(v){return String(v||"").replace(/[<>]/g,"").trim()}
 
-var K="carrito_v2";
+var K="carrito_v3";
 function items(){try{return JSON.parse(localStorage.getItem(K))||[]}catch(e){return window.__c||[]}}
 function guardar(l){window.__c=l;try{localStorage.setItem(K,JSON.stringify(l))}catch(e){}pintarCarrito()}
-function agregar(id){var s=CAT.filter(function(x){return x.id===id})[0];if(!s)return;var l=items(),i=l.filter(function(x){return x.id===id})[0];if(i)i.cant++;else l.push({id:id,nombre:s.nombre,precio:s.precio,cant:1});guardar(l)}
-function cambiar(id,d){var l=items(),i=l.filter(function(x){return x.id===id})[0];if(!i)return;i.cant+=d;if(i.cant<1)l=l.filter(function(x){return x.id!==id});guardar(l)}
+function agregar(id){var s=CAT.filter(function(x){return x.id===id})[0];if(!s)return false;var l=items();if(l.some(function(x){return x.id===id}))return false;l.push({id:id,nombre:s.nombre});guardar(l);return true}
 function quitar(id){guardar(items().filter(function(x){return x.id!==id}))}
-function total(){return items().reduce(function(a,i){return a+(i.precio||0)*i.cant},0)}
-function resumen(){var l=items();if(!l.length)return "Hola, quisiera una consulta general.";var t="Hola, quisiera estos servicios:\n";l.forEach(function(i){t+="- "+i.nombre+" x"+i.cant+(i.precio?" ("+fmt(i.precio*i.cant)+")":" (cotización)")+"\n"});return t+"Total estimado: "+fmt(total())+" (sujeto a confirmación)."}
+function resumen(){var l=items();if(!l.length)return "Hola, quisiera una consulta general.";return "Hola, quisiera cotizar estos servicios:\n"+l.map(function(i){return "- "+i.nombre}).join("\n")}
 
-function pintarCatalogo(f){f=f||"Todas";$("#grid").innerHTML=CAT.filter(function(s){return f==="Todas"||s.cat===f}).map(function(s){return '<article class="card"><span class="tag">'+esc(s.cat)+'</span><h3>'+esc(s.nombre)+'</h3><p>'+esc(s.desc)+'</p><p class="mini"><strong>Alcance:</strong> '+esc(s.alcance)+'<br><strong>Tiempo:</strong> '+esc(s.tiempo)+'</p><p class="precio">'+(s.precio?"Desde "+fmt(s.precio):"Solicitar cotización")+'</p><div class="acc"><button type="button" class="btn sec" data-det="'+s.id+'">Ver detalles</button>'+(s.precio?'<button type="button" class="btn" data-add="'+s.id+'">Agregar</button>':'<button type="button" class="btn" data-con="'+s.id+'">Consultar</button>')+'</div></article>'}).join("")}
+function pintarCatalogo(f){f=f||"Todas";$("#grid").innerHTML=CAT.filter(function(s){return f==="Todas"||s.cat===f}).map(function(s){return '<article class="card"><span class="tag">'+esc(s.cat)+'</span><h3>'+esc(s.nombre)+'</h3><p>'+esc(s.desc)+'</p><p class="mini"><strong>Alcance:</strong> '+esc(s.alcance)+'<br><strong>Tiempo:</strong> '+esc(s.tiempo)+'</p><div class="acc"><button type="button" class="btn sec" data-det="'+s.id+'">Detalles</button><button type="button" class="btn" data-add="'+s.id+'">Cotizar</button></div></article>'}).join("")}
+function pintarTrabajos(){$("#trabajos-grid").innerHTML=TRABAJOS.length?TRABAJOS.map(function(t){return '<article class="card work">'+(t.img?'<img src="'+esc(t.img)+'" alt="'+esc(t.titulo)+'" loading="lazy">':'')+'<span class="tag">'+esc(t.materia)+'</span><h3>'+esc(t.titulo)+'</h3><p>'+esc(t.desc)+'</p></article>'}).join(""):'<article class="card"><h3>Ejemplos por WhatsApp</h3><p>Estamos preparando nuestra galería. Mientras tanto, pídenos ejemplos de trabajos realizados y te los compartimos.</p><div class="acc"><button type="button" class="btn" data-ej="1">Pedir ejemplos</button></div></article>'}
 function pintarFiltros(){var c=["Todas"];CAT.forEach(function(s){if(c.indexOf(s.cat)<0)c.push(s.cat)});$("#filtros").innerHTML=c.map(function(x,i){return '<button type="button" class="chip'+(i?"":" on")+'" data-f="'+x+'">'+x+'</button>'}).join("");$("#tipo").innerHTML=CAT.map(function(s){return "<option>"+esc(s.nombre)+"</option>"}).join("")+"<option>Otra materia o ayuda</option>"}
-function pintarCarrito(){var l=items();$("#cuenta").textContent=l.reduce(function(a,i){return a+i.cant},0);$("#lineas").innerHTML=l.length?l.map(function(i){return '<li><div><strong>'+esc(i.nombre)+'</strong><br><span class="mini">'+(i.precio?fmt(i.precio)+" c/u · Subtotal: "+fmt(i.precio*i.cant):"Cotización")+'</span></div><div class="qty"><button type="button" data-m="'+i.id+'" aria-label="Menos">−</button><span>'+i.cant+'</span><button type="button" data-p="'+i.id+'" aria-label="Más">+</button><button type="button" data-q="'+i.id+'" aria-label="Quitar">✕</button></div></li>'}).join(""):"<li>Tu carrito está vacío.</li>";$("#total").textContent=fmt(total())}
+function pintarCarrito(){var l=items();$("#cuenta").textContent=l.length;$("#lineas").innerHTML=l.length?l.map(function(i){return '<li><strong>'+esc(i.nombre)+'</strong><button type="button" data-q="'+i.id+'" aria-label="Quitar">✕</button></li>'}).join(""):"<li>Aún no has agregado servicios.</li>"}
 function aviso(t,ok){var a=$("#aviso");a.textContent=t;a.className="aviso "+(ok===false?"err":"ok");a.hidden=false;setTimeout(function(){a.hidden=true},4500)}
 
 document.addEventListener("click",function(e){var t=e.target.closest("button");if(!t)return;var d=t.dataset;
- if(d.add){agregar(d.add);aviso("Agregado al carrito.")}
- if(d.det){var s=CAT.filter(function(x){return x.id===d.det})[0];alert(s.nombre+"\n\n"+s.desc+"\nAlcance: "+s.alcance+"\nTiempo: "+s.tiempo+"\n"+(s.precio?"Precio base: "+fmt(s.precio):"Requiere cotización"))}
- if(d.con){var c=CAT.filter(function(x){return x.id===d.con})[0];wa("Hola, quisiera cotizar: "+c.nombre+".")}
+ if(d.add){aviso(agregar(d.add)?"Agregado a tu solicitud.":"Ya está en tu solicitud.")}
+ if(d.det){var s=CAT.filter(function(x){return x.id===d.det})[0];alert(s.nombre+"\n\n"+s.desc+"\nAlcance: "+s.alcance+"\nTiempo: "+s.tiempo+"\nEl valor lo confirma un asesor.")}
+ if(d.ej)wa("Hola, quisiera ver ejemplos de trabajos realizados.");
  if(d.f){$$(".chip").forEach(function(c){c.classList.toggle("on",c===t)});pintarCatalogo(d.f)}
- if(d.p)cambiar(d.p,1);if(d.m)cambiar(d.m,-1);if(d.q)quitar(d.q)});
+ if(d.q)quitar(d.q)});
 
-pintarFiltros();pintarCatalogo();pintarCarrito();
+pintarFiltros();pintarCatalogo();pintarTrabajos();pintarCarrito();
 $("#abrirCarrito").onclick=function(){$("#panel").classList.add("abierto")};
 $("#cerrarCarrito").onclick=function(){$("#panel").classList.remove("abierto")};
 $("#vaciar").onclick=function(){guardar([])};
@@ -120,7 +124,7 @@ $("#form").onsubmit=function(e){e.preventDefault();var f=e.target,d={};["web","n
 
 /* Chatbot sin API (para IA usa un backend seguro, nunca claves en GitHub) */
 var R=[{k:["servicio","ofrecen"],r:"Ofrecemos tutorías, revisión, normas APA, material de estudio y orientación para Psicología UNAD.",ir:"#catalogo"},
-{k:["cuesta","precio","costo"],r:"Algunos servicios tienen precio base y otros se cotizan según extensión y plazo. Un asesor confirma el valor final."},
+{k:["cuesta","precio","costo"],r:"Cada servicio se cotiza según extensión, materia y plazo. Un asesor te confirma el valor por WhatsApp."},
 {k:["cotiza","presupuesto","solicit"],r:"Llena el formulario corto o escríbenos por WhatsApp.",ir:"#pedir"},
 {k:["material","enviar","requisito"],r:"Normalmente: la guía de la actividad, tu borrador o tema y la fecha límite. Nunca envíes claves del campus virtual."},
 {k:["tarda","entrega","plazo"],r:"Los tiempos son estimados y se confirman antes de empezar."},
